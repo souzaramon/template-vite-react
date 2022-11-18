@@ -1,7 +1,11 @@
 import './config/tailwind.css'
 
+import { Counter } from '~/components/Counter'
+
 export function App() {
   return (
-    <h1 className='p-2 text-red-600'>hello</h1>
+    <div>
+      <Counter />
+    </div>
   )
 }
