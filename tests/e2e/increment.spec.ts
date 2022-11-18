@@ -5,7 +5,7 @@ test.describe('increment', () => {
     await page.goto('/');
   })
 
-  test('increment by user flow', async ({ page }) => {
+  test('increment by user', async ({ page }) => {
     await test.step('span should start as zero', async () => {
       expect(await page.locator('span').first().innerText()).toBe('0');
     })
@@ -15,7 +15,7 @@ test.describe('increment', () => {
       expect(await page.locator('span').first().innerText()).toBe('1');
     })
 
-    await test.step('span should be one after two click', async () => {
+    await test.step('span should be two after two clicks', async () => {
       await page.locator('text=increment').click();
       expect(await page.locator('span').first().innerText()).toBe('2');
     })

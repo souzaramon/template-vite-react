@@ -1,7 +1,7 @@
 ![master](https://github.com/souzaramon/template-vite-react/actions/workflows/cd.yml/badge.svg)
 
 # template-vite-react
-A mininal setup of React + TailWind with a good setup of tests and a ci/cd ready to deploy with gh-pages, see it [here](https://souzaramon.github.io/template-vite-react/)
+A mininal template of React + Tailwind with a good configuration of tests and a ci/cd ready to deploy with gh-pages, see it [here](https://souzaramon.github.io/template-vite-react/)
 
 ## Features
 - end-to-end tests with [playwright](https://playwright.dev/)
