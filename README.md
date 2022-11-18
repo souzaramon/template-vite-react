@@ -1,7 +1,7 @@
 ![master](https://github.com/souzaramon/template-vite-react/actions/workflows/cd.yml/badge.svg)
 
 # template-vite-react
-A mininal setup of React + TailWind with a good setup of tests and a ci/cd ready to deploy with gh-pages
+A mininal setup of React + TailWind with a good setup of tests and a ci/cd ready to deploy with gh-pages, see it [here](https://souzaramon.github.io/template-vite-react/)
 
 ## Features
 - end-to-end tests with [playwright](https://playwright.dev/)
@@ -12,8 +12,11 @@ A mininal setup of React + TailWind with a good setup of tests and a ci/cd ready
 ## Getting started
 - Click on `use this template`
 - Create a new repo with a really cool name like `supercool-frontend`
-- Go to Settings > Pages > Branch
-  - and set **gh-pages**
+- Go to
+  - Settings
+    - Pages
+      - Branch
+        - set **gh-pages**
 - Update vite.config.ts
   ```diff
   - base: '/template-vite-react/',
