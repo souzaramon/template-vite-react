@@ -19,7 +19,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16.16.0'
-      - run: yarn install
+      - run: |
+          yarn install
+          yarn playwright install --with-deps
       - uses: actions/cache@v3
         id: cache-node-modules
         with:
