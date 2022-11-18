@@ -19,9 +19,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.16.0
-      - run: |
-          yarn install
-          yarn playwright install --with-deps
       - uses: actions/cache@v3
         id: cache-node-modules
         with:
@@ -32,6 +29,9 @@ jobs:
         with:
           path: ~/.cache/ms-playwright
           key: cache-playwright-${{ hashFiles('**/yarn.lock') }}
+      - run: |
+          yarn install
+          yarn playwright install --with-deps
 
   lint:
     needs: [install]
@@ -109,8 +109,9 @@ jobs:
       - run: |
           yarn
           yarn build
-      - uses: actions/cache@v3
-        id: build
+          tar -cvf build.tar ./dist
+      - uses: actions/upload-artifact@v3
         with:
-          path: ./dist
-          key: build-${{ env.GITHUB_SHA }}-${{ hashFiles('**/yarn.lock') }}
+          name: build-react-${{ github.sha }}
+          path: build.tar
+          retention-days: 30
