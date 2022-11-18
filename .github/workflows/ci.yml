@@ -32,6 +32,7 @@ jobs:
         with:
           path: ~/.cache/ms-playwright
           key: cache-playwright-${{ hashFiles('**/yarn.lock') }}
+
   lint:
     needs: [install]
     runs-on: ubuntu-22.04
@@ -49,7 +50,7 @@ jobs:
           yarn
           yarn run lint
 
-  test-unit:
+  tests-unit:
     needs: [install]
     runs-on: ubuntu-22.04
     steps:
@@ -91,3 +92,25 @@ jobs:
           yarn
           yarn playwright install
           yarn run test:e2e --project=${{ matrix.browsers }}
+
+  build:
+    needs: ['lint', 'tests-unit', 'tests-e2e']
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.16.0
+      - uses: actions/cache@v3
+        id: cache-node-modules
+        with:
+          path: ./node_modules
+          key: cache-${{ hashFiles('**/yarn.lock') }}
+      - run: |
+          yarn
+          yarn build
+      - uses: actions/cache@v3
+        id: build
+        with:
+          path: ./dist
+          key: build-${{ env.GITHUB_SHA }}-${{ hashFiles('**/yarn.lock') }}
