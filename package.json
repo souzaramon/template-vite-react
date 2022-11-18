@@ -8,8 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint ./src",
-    "test:unit": "vitest",
-    "test:e2e": "playwright test"
+    "test:unit": "vitest --passWithNoTests",
+    "test:e2e": "playwright test --pass-with-no-tests"
   },
   "dependencies": {
     "autoprefixer": "^10.4.13",
