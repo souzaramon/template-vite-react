@@ -4,13 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
     "lint": "eslint ./src",
     "ladle": "ladle serve",
-    "test": "vitest --passWithNoTests --silent",
+    "ladle:build": "ladle build",
     "test:unit": "vitest --passWithNoTests --silent --run",
+    "test:unit:watch": "vitest --passWithNoTests --silent",
     "test:e2e": "playwright test --pass-with-no-tests"
   },
   "dependencies": {
