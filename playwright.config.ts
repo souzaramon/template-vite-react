@@ -7,7 +7,7 @@ let config: PlaywrightTestConfig = {
   retries: process.env.CI ? 1 : 0,
   testDir: "./tests/e2e",
   webServer: {
-    command: "yarn dev",
+    command: "yarn start",
     url: BASE_URL,
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
